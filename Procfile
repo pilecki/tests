@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn ksiegarnia.wsgi:application
+web: gunicorn ksiegarnia.wsgi:application
