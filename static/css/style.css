@@ -1,0 +1,312 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Raleway', sans-serif;
+    background-color: #faebd752;
+    color: #584838;
+}
+
+/* Footer */
+
+#page-container {
+  position: relative;
+  min-height: 100%;
+  background-color: #faebd752;
+}
+
+#content-wrap {
+  padding-bottom:8.5rem;
+  background-color: #faebd752;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 8.5rem;           
+}
+
+/*   Coulours   */
+
+.orange{
+
+    background-color: #e77740;
+}
+
+
+.light-orange {
+    background-color: #faebd752;
+}
+
+/*   Fonts   */
+
+@media only screen and (max-width: 992px) {
+    .small-font {
+    
+    font-size: 0.8rem;
+}
+}
+.font-orange {
+    color: #e77740 !important;
+}
+.font-green {
+    color: #5ecf0a !important;
+}
+
+.small-font-8 {
+    font-size: 0.8rem;
+}
+
+.font-h {
+    line-height: 1.7rem;
+}
+#text-right-lg {
+    text-align: right !important;
+}
+
+/* Buttons */
+
+.custom-btn {
+    background-color: #e77740 !important;
+}
+
+.btn {
+    color: #584838;
+}
+
+/*  Navbar  */
+
+
+.vertical-center-mobile {
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+}
+
+@media only screen and (min-width: 1267px) {
+    .nav-links-xlg {
+    display: block;
+    padding: .5rem .5rem;
+}
+}
+
+@media only screen and (min-width: 1140px) {
+    .nav-links-lg {
+    display: block;
+    padding: .5rem .3rem;
+}
+}
+@media only screen and (max-width: 1139px) {
+    .nav-links-md {
+    display: block;
+    padding: .5rem 0;
+}
+}
+
+
+@media only screen and (max-width: 690px) {
+    .display-none-on-min-690 {
+    
+    display: none;
+}
+}
+
+@media only screen and (min-width: 689px) {
+    .display-on-max-689 {
+    
+    display: none;
+}
+}
+@media only screen and (max-width: 767px) {
+    .width-50 {
+    
+    width: 50%;
+    padding-top: 1.5rem;
+    }
+}
+@media only screen and (max-width: 576px) {
+    .sm-invisible {
+    display: none; 
+    
+}
+}
+
+
+
+/* Cards */
+.card {
+    background-color: #faebd752;
+}
+
+.card-border {
+    border: 3px solid  #bdc6cc3d;
+}
+
+.img-small {
+        height: 100px;
+        width: 85px;
+        margin-left: 5px;
+    }
+
+.ml {
+    margin-left: 100px;
+
+}
+
+.default-border {
+    border: 1px solid  #e77740;
+    border-radius: .25rem;
+}
+
+.title-height {
+    height: 110px;
+    
+}
+
+@media only screen and (min-width: 768px) {
+    .right-md-element {
+    
+    
+    position: absolute;
+    right: 0;
+    font-size: 0.7rem;
+    padding-top: 0.3rem;
+}
+}
+
+@media only screen and (max-width: 767px) {
+    .right-sm-element {
+    margin-bottom: 5px;
+    position: absolute;
+    top: 25px;
+    font-size: 0.7rem;
+    padding-top: 0.3rem;
+}
+}
+
+
+tr > td {
+    width: 50%;
+}
+
+
+/* Allauth */
+
+.width-fit-content {
+    width: fit-content;
+}
+
+
+
+/* Styling hamburger   */
+
+.hamburger{
+    
+    font-size:30px;
+    cursor:pointer;
+    
+}
+
+
+.sidenav {
+  height: auto;
+  width: 0;
+  position: fixed;
+  z-index: 1;  
+  left: 0;
+  background-color:#e77740;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #584838;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #faebd752;
+  text-decoration: none;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+    }
+  
+  .sidenav a {
+    font-size: 18px;
+     }
+}
+
+
+/* Media queries */
+
+@media only screen and (max-width: 767px) {
+    .hide-element {
+    display: none !important;
+}
+}
+
+
+@media only screen and (max-width: 767px) {
+    .font-table-small {
+    font-size: .8rem;
+    font-weight: 600;
+}
+}
+
+a:hover{
+    cursor: pointer;
+}
+@media only screen and (max-width: 578px) {
+    .move-element {
+    position: absolute;
+    bottom : 85px;
+    left: 5px;
+    width:35%;
+}
+}
+
+
+/* Input */
+input {
+    background-color: #ffab000a !important;
+    color: #584838;
+}
+
+/* Anchors */
+
+a {
+    color: #584838;
+}
+
+a:hover {
+    color:  black;
+    text-decoration: none;
+}
+
+.footer-border {
+    border: 1px solid #584838 !important;
+}

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+    <div class="container">
+       <div class="container-fluid">
+            <div class="row">
+                <div class="product-container col-10 offset-1">
+                    <div class="row mt-1 mb-2"></div>
+                    <div class="row">
+                        {% for product in products %}
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                                <div class="card h-100 card-border">
+                                    {% if product.image %}
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                    </a>
+                                    {% else %}
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                    </a>
+                                    {% endif %}
+                                    <div class="card-body p-2 title-height">
+                                        <p class="mb-0 small-font-8">{{ product.name }}</p>
+                                    </div>
+                                    <div class="card-footer pt-0 border-0 text-left">
+                                        <div class="row ">
+                                            <div class="col">
+                                                <p class="lead mt-lg-3 text-left">£{{ product.price }}</p>                                                                                               
+                                                {% if request.user.is_superuser %}
+                                                <div>
+                                                    <a href="{% url 'edit_product' product.id %}">Edit</a> 
+                                                    <a href="{% url 'delete_product' product.id %}">Delete</a>
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col">
+                                                <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+                                                {% csrf_token %}                        
+                                                    <input type="hidden" name="quantity" value="1" min="1" max="1">                                
+                                                    <input type="submit" class="btn-small rounded border-0 custom-btn" value="Add to Bag">
+                                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if forloop.counter|divisibleby:1 %}
+                                <div class="col-12 d-sm-none mb-5">
+                                    <hr>
+                                </div>
+                            {% endif %}                        
+                            {% if forloop.counter|divisibleby:2 %}
+                                <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                                    <hr>
+                                </div>
+                            {% endif %}
+                            {% if forloop.counter|divisibleby:3 %}
+                                <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                                    <hr>
+                                </div>
+                            {% endif %}
+                            {% if forloop.counter|divisibleby:4 %}
+                                <div class="col-12 d-none d-xl-block mb-5">
+                                    <hr>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+   </div>
+
+{% endblock %}
