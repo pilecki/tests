@@ -119,10 +119,9 @@ if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-    # Dodanie wymuszenia UTC dla PostgreSQL
-    DATABASES['default']['OPTIONS'] = {
-        'options': '-c timezone=UTC'
-    }
+    if 'OPTIONS' not in DATABASES['default']:
+        DATABASES['default']['OPTIONS'] = {}
+    DATABASES['default']['OPTIONS']['options'] = '-c timezone=UTC'
 else:
     DATABASES = {
         'default': {
