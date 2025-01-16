@@ -117,7 +117,9 @@ WSGI_APPLICATION = 'ksiegarnia.wsgi.application'
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'),
+                                        options={'options': '-c timezone=UTC'}  # Wymuszenie UTC
+                                        )
     }
 else:
     DATABASES = {
