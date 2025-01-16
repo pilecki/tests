@@ -1,1 +1,1 @@
-web: gunicorn ksiegarnia.wsgi:application
+web: ./migrate.sh && gunicorn ksiegarnia.wsgi:application
