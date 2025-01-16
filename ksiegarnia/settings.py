@@ -117,9 +117,11 @@ WSGI_APPLICATION = 'ksiegarnia.wsgi.application'
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'),
-                                        options={'options': '-c timezone=UTC'}  # Wymuszenie UTC
-                                        )
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))                                       )
+    }
+    # Dodanie wymuszenia UTC dla PostgreSQL
+    DATABASES['default']['OPTIONS'] = {
+        'options': '-c timezone=UTC'
     }
 else:
     DATABASES = {
