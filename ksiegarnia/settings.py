@@ -114,6 +114,15 @@ LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'ksiegarnia.wsgi.application'
 
+from django.db.backends.postgresql.base import DatabaseWrapper
+
+def force_utc_check(database_wrapper):
+    with database_wrapper.cursor() as cursor:
+        cursor.execute("SHOW timezone;")
+        tz = cursor.fetchone()[0]
+        assert tz == "UTC", f"Database connection is set to {tz}, not UTC"
+
+DatabaseWrapper.ensure_timezone = force_utc_check
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
